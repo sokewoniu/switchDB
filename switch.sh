@@ -55,7 +55,7 @@ cd `dirname $0`
 clear
 
 #修改python脚本数据连接参数
-find $root -name app.py -exec ./switchPython.sh $ip:1521/ghdb$opt {} \;
+find $root -name config.ini -exec ./switchPython.sh $ip:1521/ghdb$opt {} \;
 
 #修改tomcat数据连接参数
 find $root -name datasource.properties -exec ./switchTomcat.sh $ip:1521:ghdb$opt {} \;

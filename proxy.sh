@@ -52,7 +52,7 @@ if [ $opt != rm ]; then
   eval "ip=\$$opt"
   iptables -t nat -I AG-PST -p tcp -d $ip -j MASQUERADE
   #转发端口
-  for port in 8080 5672 15674
+  for port in 80 443 8080 5672 15674
   do
     iptables -t nat -I AG-PRE -p tcp --dport $port -j DNAT --to-destination $ip
     iptables -I AG-FWD  -p tcp -m state --state RELATED,ESTABLISHED -m tcp --sport $port -j ACCEPT
